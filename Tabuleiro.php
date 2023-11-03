@@ -1,10 +1,8 @@
 <?php
 
 class Tabuleiro {
-    
     public $jogo = array(array());
     public $exemploJogo = array(array());
-
     public $tamanhoJogo;
 
     //Cria um tabuleiro de acordo com a escolha do jogador preenchendo com "-" ao iniciar o programa.
@@ -15,7 +13,7 @@ class Tabuleiro {
             }
         }
     }
-
+    //o tabuleiro que esta rodando para o jogo atual.
     public function tabuleiroJogado() {
         for ($i = 0; $i < $this->tamanhoJogo; $i++) {
             for ($j = 0; $j < $this->tamanhoJogo; $j++) {
@@ -24,7 +22,7 @@ class Tabuleiro {
             echo "\n";
         }
     }
-
+    //um exemplo de tabuleiro para o jogador saber em qual casa escolher.
     public function exemploTabuleiro() {
         $preencher = 1;
         for ($i = 0; $i < $this->tamanhoJogo; $i++) {
@@ -37,7 +35,7 @@ class Tabuleiro {
         }
         echo "----------------------------\n";
     }
-
+    //escolhas do Jogador 1.
     public function escolhaJG1($escolha) {
         $linha = floor(($escolha - 1) / $this->tamanhoJogo);
         $coluna = floor(($escolha - 1) % $this->tamanhoJogo);
@@ -47,7 +45,7 @@ class Tabuleiro {
             echo "Escolha inválida, você perdeu a jogada!\n";
         }
     }
-
+    //escolhas do Jogador 2.
     public function escolhaJG2($escolha) {
         $linha = floor(($escolha - 1) / $this->tamanhoJogo);
         $coluna = floor(($escolha - 1) % $this->tamanhoJogo);
@@ -57,7 +55,7 @@ class Tabuleiro {
             echo "Escolha inválida, você perdeu a jogada!\n";
         }
     }
-
+    //escolhas random do Robo.
     public function escolhaRobo() {
         $cont = 0;
         do {

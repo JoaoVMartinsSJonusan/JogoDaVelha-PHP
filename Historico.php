@@ -1,14 +1,13 @@
 <?php
     class Historico {
-
         public function __construct() {
         }
-
-        public function salvaDados($nomeAdd){
+        //Salva os dados em um arquivo csv.
+        public function salvaDados($nomeAdd, $valor){
             $arquivo  = fopen('Historico.csv', 'a');
             $dados = [
                 [
-                    $nomeAdd, 1
+                    $nomeAdd, $valor
                 ],
             ];
             foreach ($dados as $linha) {
@@ -16,7 +15,7 @@
             }
             fclose($arquivo);
         }
-
+        //mostra o ranking de acordo com a quantidade de vitorias usando um array associativo.
         public function ranking(){
             $historico = array();
             if (($handle = fopen('Historico.csv', 'r')) !== FALSE) {
@@ -39,7 +38,7 @@
                 $posi++;
             }
         }
-
+        //mostra o historico de partidas usando um array multidimensional.
         public function historico(){
             $historico = array();
             if (($handle = fopen('Historico.csv', 'r')) !== FALSE) {
@@ -62,5 +61,4 @@
             }
         }
     }
-
 ?>
